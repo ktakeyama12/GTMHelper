@@ -1,0 +1,9 @@
+applications:
+- name: my-project
+  memory: 64M
+  instances: 3
+  buildpacks:
+    - https://github.com/cloudfoundry/staticfile-buildpack
+  routes:
+    - route: my-project.pro.jpe2.rpaas.net
+    - route: my-project.pub.jpe2.rpaas.net
