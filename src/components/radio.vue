@@ -21,7 +21,7 @@
         },
 
         props: {
-            value: {},
+            value: null,
             checked: {},
             label: { type: String },
             name: { type: String, require: true }

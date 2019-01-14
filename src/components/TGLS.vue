@@ -1,36 +1,50 @@
 <template>
-    <label>
-        <span v-if="$slots.label"><slot name="label"></slot></span>
-        <span v-else-if="label">{{ label }}</span>
-        <input type="radio"
-               :name="name"
-               :value="value"
-               :checked="checked === value"
-               @change="updateValue"
-               @focus="$emit('focus', $event)"
-               @blur="$emit('blur', $event)"
+    <div>
+        <h1>Radio List</h1>
+        <div
+                v-for="item in items"
+                :key="item.key"
         >
-        <slot></slot>
-    </label>
+            <label>
+                <input
+                        type="radio"
+                        v-model="picked"
+                        :value="item.value"
+                        :checked="item.checked"
+                        v-on:change="updateValue"
+                />
+                {{ item.label }}
+            </label>
+        </div>
+        <h3>Checked: {{ picked }}</h3>
+    </div>
 </template>
+
 <script>
     export default {
-        model: {
-            prop: 'checked',
-            event: 'input'
-        },
+        name: 'tgls',
 
-        props: {
-            value: {},
-            checked: {},
-            label: { type: String },
-            name: { type: String, require: true }
-        },
+        data: () => ({
+            picked: null,
+            items: [
+                {
+                    key: 1,
+                    value: 'TG',
+                    label: 'TG',
+                    checked: false,
+                },
+                {
+                    key: 2,
+                    value: 'LS',
+                    label: 'LS',
+                    checked: true,
+                },
+            ],
+        }),
 
         methods: {
-            updateValue (e) {
-                this.$emit('input', this.value)
-                this.$emit('checked', this.value)
+            updateValue (event) {
+                this.$emit('clicked', this.picked)
             }
         }
     }
