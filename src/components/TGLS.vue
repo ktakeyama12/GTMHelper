@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Radio List</h1>
+        <h3>TG or LS tag</h3>
         <div
                 v-for="item in items"
                 :key="item.key"
