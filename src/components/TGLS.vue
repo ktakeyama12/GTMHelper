@@ -11,7 +11,7 @@
                         v-model="tglscode"
                         :value="tglsoption.value"
                         :checked="tglsoption.checked"
-                        v-on:change="updateValue"
+                        v-on:change="updateTGLS"
                 />
                 {{ tglsoption.label }}
             </label>
@@ -29,7 +29,7 @@
                         v-model="discountcode"
                         :value="discountoption.value"
                         :checked="discountoption.checked"
-                        v-on:change="updateValue"
+                        v-on:change="updateTGLS"
                 />
                 {{ discountoption.label }}
             </label>
@@ -76,8 +76,8 @@
         }),
 
         methods: {
-            updateValue (event) {
-                this.$emit('clicked', this.tglscode + ": {ranMID: 'XXX', discountType: '" + this.discountcode + "'},")
+            updateTGLS (event) {
+                this.$emit('clicked', "      " + this.tglscode + ": {ranMID: 'XXX', discountType: '" + this.discountcode + "'},")
             }
         }
     }
