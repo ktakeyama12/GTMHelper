@@ -4,6 +4,8 @@ import './plugins/vuetify'
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import Radio from './components/TGLS';
+Vue.component('vue-radio', Radio)
 
 Vue.config.productionTip = false;
 
