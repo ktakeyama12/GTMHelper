@@ -16,7 +16,8 @@
                 {{ taxoption.label }}
             </label>
         </div>
-        <h3>Checked: {{ taxcode }}</h3>
+        <br />
+        <!--<h3>Checked: {{ taxcode }}</h3>-->
     </div>
 </template>
 
@@ -35,7 +36,7 @@
                 },
                 {
                     key: 2,
-                    value: '        var unit_price_less_tax = Math.floor(unit_price / 108 * 100);',
+                    value: '      var unit_price_less_tax = Math.floor(unit_price / 108 * 100);',
                     label: 'Remove Tax',
                     checked: true,
                 },

@@ -16,7 +16,8 @@
                 {{ tglsoption.label }}
             </label>
         </div>
-        <h3>Checked: {{ tglscode }}</h3>
+        <br />
+        <!--<h3>Checked: {{ tglscode }}</h3>-->
 
         <h3>discountType</h3>
         <div
@@ -34,7 +35,8 @@
                 {{ discountoption.label }}
             </label>
         </div>
-        <h3>Checked: {{ discountcode }}</h3>
+        <br />
+        <!--<h3>Checked: {{ discountcode }}</h3>-->
     </div>
 </template>
 

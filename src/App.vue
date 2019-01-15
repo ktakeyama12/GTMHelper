@@ -2,6 +2,8 @@
     <div class="a">
     <Tgls @clicked="updateTGLS"/>
       <Tax @clicked="updateTax"/>
+      <McrTransactionId @clicked="updateMcrTransactionId"/>
+      <DiscountCode @clicked="updateDiscountCode"/>
       <pre>
       {{intro}}
       {{mcr_transaction_id}}
@@ -13,9 +15,11 @@
       {{unit_price_less_tax}}
       {{sku}}
       {{ifproducts}}
+      {{discountcode}}
       {{rm_trans}}
       {{affiliateconfig}}
       {{orderid}}
+      {{mcr_transaction_id_blank}}
         </pre>
     </div>
 
@@ -24,12 +28,16 @@
 <script>
     import Tgls from './components/TGLS'
     import Tax from './components/Tax'
+    import McrTransactionId from './components/McrTransactionId'
+    import DiscountCode from './components/DiscountCode'
 
     export default{
         name: 'App',
         components: {
-            Tgls,
-          Tax
+          DiscountCode,
+          Tgls,
+          Tax,
+          McrTransactionId
         },
         data() {
           return {
@@ -63,8 +71,9 @@
                     '        if (products[sku].SKU) {\n' +
                     '            line_items.push(products[sku]);\n' +
                     '        }\n' +
-                    '    }',
-            rm_trans: '    var rm_trans = {',
+                    '    }\n',
+            discountcode: null,
+            rm_trans: '  var rm_trans = {',
             affiliateconfig: '      affiliateConfig: {ranMID: \'XXX\', discountType: \'order\'},',
             orderid: '      orderid : MCR_TRANSACTION_ID,\n' +
                     '        currency: \'JPY\',\n' +
@@ -76,6 +85,7 @@
                     '        taxAmount: 0,\n' +
                     '        lineitems: line_items\n' +
                     '    };\n',
+            mcr_transaction_id_blank: '',
           }
         },
         methods: {
@@ -84,6 +94,12 @@
             },
           updateTax (tax) {
             this.unit_price_less_tax = tax
+          },
+          updateMcrTransactionId(mcr_transaction_id_blank) {
+              this.mcr_transaction_id_blank = mcr_transaction_id_blank
+          },
+          updateDiscountCode(discount_code) {
+              this.discountcode = discount_code
           }
         }
     }
