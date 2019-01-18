@@ -1,23 +1,15 @@
 <template>
-    <div id="app">hello
-        <ExcludeTax/>
-        {{excludetax}}
+    <div id="app">GTM Helper for TG / LS
+        <br />
+        <router-link to="/">TG</router-link> |
+        <router-link to="/LS">LS</router-link>
+        <router-view/>
     </div>
 </template>
 
 <script>
-    import { mapState } from "vuex";
-
-    import ExcludeTax from './components/ExcludeTax'
-
     export default {
-        name: "App",
-        computed: mapState({
-            excludetax: state => state.excludetax.code
-        }),
-        components: {
-            ExcludeTax
-        }
+        name: "App"
     };
 </script>
 
