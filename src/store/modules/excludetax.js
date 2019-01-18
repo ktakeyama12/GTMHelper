@@ -1,5 +1,5 @@
 const state = {
-    code : '        var unit_price_less_tax = unit_price'
+    code : '      var unit_price_less_tax = unit_price'
 }
 
 const mutations = {

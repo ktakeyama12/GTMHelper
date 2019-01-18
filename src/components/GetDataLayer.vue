@@ -12,7 +12,6 @@
 </template>
 
 <script>
-    import lodash from 'lodash'
     export default {
         name: "GetDataLayer",
         data: function() {
