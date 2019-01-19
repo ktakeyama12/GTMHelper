@@ -2,12 +2,12 @@
     <div>
         <ExcludePrice/>
         <MTIDNoFire/>
-        <pre>
-            {{code1}}
-            {{excludeprice}}
-            {{code2}}
-            {{mtidnofire}}
-        </pre>
+<pre>
+{{code1}}
+{{excludeprice}}
+{{code2}}
+{{mtidnofire}}
+</pre>
     </div>
 </template>
 

@@ -45,9 +45,9 @@
         methods: {
             updateMTIDNoFire () {
                 if(this.mtidnofirecode === 'DoNothing'){
-                    store.commit('doNothing')
+                    store.commit('doNothingMTID')
                 }else {
-                    store.commit('nofire')
+                    store.commit('noFireMTID')
                 }
             }
         }

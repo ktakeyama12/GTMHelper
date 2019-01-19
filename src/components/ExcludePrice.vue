@@ -45,9 +45,9 @@
         methods: {
             updatePrice () {
                 if(this.pricecode === 'DoNothing'){
-                    store.commit('doNothing')
+                    store.commit('doNothingPrice')
                 }else {
-                    store.commit('exclude')
+                    store.commit('excludePrice')
                 }
             }
         }

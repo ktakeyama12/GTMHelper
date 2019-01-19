@@ -45,9 +45,9 @@
         methods: {
             updateTax () {
                 if(this.taxcode === 'DoNothing'){
-                    store.commit('doNothing')
+                    store.commit('doNothingTax')
                 }else {
-                    store.commit('exclude')
+                    store.commit('excludeTax')
                 }
             }
         }

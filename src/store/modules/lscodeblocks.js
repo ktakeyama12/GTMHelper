@@ -1,24 +1,20 @@
 const state = {
 code1 :
-`
-<!-- START of Rakuten Marketing Conversion Tag -->
-<!-- 「注意／削除する場合はリンクシェアジャパンへ連絡下さい」「ATTENTION／Please contact LINKSHARE Japan when you delete」 -->
-        <script type="text/javascript">
-        
-        var MCR_TRANSACTION_ID       = GTM_HINT.orderNumber;
-        var MCR_TRANSACTION_PRODUCTS = GTM_HINT.details;
-        
-        var products = [];
-        for (var i = 0; i < MCR_TRANSACTION_PRODUCTS.length; i++) {
-            var quantity            = parseInt(MCR_TRANSACTION_PRODUCTS[i].quantity, 10);
-            var unit_price          = parseInt(MCR_TRANSACTION_PRODUCTS[i].price, 10);`
-            ,
+`<!-- START of Rakuten Marketing Conversion Tag -->
+<script type="text/javascript">
+var MCR_TRANSACTION_ID          = {{mcr-transaction_id}};
+var MCR_TRANSACTION_PRODUCTS    = {{mcr-transaction_products}};
+var MCR_TRANSACTION_DISCOUNT    = {{mcr-transaction_discount}};
+
+var products = [];  
+for (var i = 0; i < MCR_TRANSACTION_PRODUCTS.length; i++) {
+    var quantity            = parseInt(MCR_TRANSACTION_PRODUCTS[i].quantity, 10);
+    var unit_price_less_tax = parseInt(MCR_TRANSACTION_PRODUCTS[i].price, 10);      
+    var unit_price          = unit_price_less_tax;`,
 
 code2 :
-`
-var sku                 = MCR_TRANSACTION_PRODUCTS[i].id;
-    var name                = sku
-
+`    var sku                 = MCR_TRANSACTION_PRODUCTS[i].id;`,
+code3 :`
     if (products[sku]) {
         products[sku].quantity += quantity;
     } else {
@@ -27,7 +23,7 @@ var sku                 = MCR_TRANSACTION_PRODUCTS[i].id;
             unitPriceLessTax : unit_price_less_tax,
             unitPrice        : unit_price,
             SKU              : sku,
-            productName      : sku
+            productName      : product_name
         };
     }
 }
@@ -38,16 +34,10 @@ for (var sku in products) {
         line_items.push(products[sku]);
     }
 }
+`,
 
-var discountAmount = GTM_HINT.total.price - GTM_HINT.revenue;
-
-if (discountAmount>0) {
-        var discount = 'DISCOUNT';
-} else {
-        var discount = '';
-}
-
-var rm_trans = {
+code4 :
+`var rm_trans = {
     affiliateConfig: {ranMID: 'XXX', discountType: 'order'},
     orderid : MCR_TRANSACTION_ID,
     currency: 'JPY',
@@ -59,7 +49,7 @@ var rm_trans = {
     taxAmount: 0,
     lineitems: line_items
 };
-    `
+`
 }
 
 export default {
