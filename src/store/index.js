@@ -8,6 +8,10 @@ import productnamesku from './modules/productnamesku'
 import tgcodeblocks from './modules/tgcodeblocks'
 import lscodeblocks from './modules/lscodeblocks'
 
+import tgresultblocks from './modules/tgresultblocks'
+import tgvariables from './modules/tgvariables'
+
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -18,6 +22,8 @@ export default new Vuex.Store({
         setdiscount,
         productnamesku,
         tgcodeblocks,
-        lscodeblocks
+        lscodeblocks,
+        tgresultblocks,
+        tgvariables
     }
 })

@@ -13,6 +13,7 @@
 {{setdiscount}}
 {{code4}}
 </pre>
+    <router-link to="/ResultLS">Submit</router-link>
 </div>
 </template>
 
