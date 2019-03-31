@@ -1,4 +1,8 @@
-# my-project
+# GTM Helper
+
+GTM (Google Tag Manager) Helper is an application that assists the process of creating GTM tags. These tags can be implemented in webpages to track user's clicks and navigations.
+
+It uses Vue.js and Vuex.
 
 ## Project setup
 ```
